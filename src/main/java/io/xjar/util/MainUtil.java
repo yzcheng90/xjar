@@ -13,7 +13,8 @@ import io.xjar.jar.XJarAntEntryFilter;
 public class MainUtil {
 
     public static void main(String[] args) throws Exception {
-        String address = AddressUtil.getHostAddress();
+//        String address = AddressUtil.getHostAddress();
+        String address = "095312603d514460379c9b8dea9193f4";
         System.out.println("======"+address);
         System.out.println("======开始");
         String password = "czx";
