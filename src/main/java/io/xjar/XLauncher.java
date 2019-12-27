@@ -147,7 +147,6 @@ public class XLauncher implements XConstants {
         this.xEncryptor = new XJdkEncryptor(algorithm);
         String address = AddressUtil.getHostAddress();
         String md5 = AddressUtil.encode( password + address);
-        System.out.println("======password:"+md5);
         this.xKey = XKit.key(algorithm, keysize, ivsize, md5);
     }
 

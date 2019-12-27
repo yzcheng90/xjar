@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class AddressUtil {
 
+    public static String salt = "www.czx.com";
 
     public static String getHostAddress() throws SocketException {
         java.util.Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();
@@ -46,6 +47,7 @@ public class AddressUtil {
     }
 
     public static String encode(String data){
+        data += salt;
         String md5Result = null;
         if(null == data){
             return md5Result;
