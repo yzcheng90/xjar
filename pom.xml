@@ -29,6 +29,12 @@
             <artifactId>commons-compress</artifactId>
             <version>1.18</version>
         </dependency>
+        <!--hutool-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.4.5</version>
+        </dependency>
         <dependency>
             <groupId>com.github.core-lib</groupId>
             <artifactId>loadkit</artifactId>

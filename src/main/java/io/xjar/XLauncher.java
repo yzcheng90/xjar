@@ -1,6 +1,7 @@
 package io.xjar;
 
 import io.xjar.key.XKey;
+import io.xjar.util.AddressUtil;
 
 import java.io.*;
 import java.net.URI;
@@ -144,7 +145,10 @@ public class XLauncher implements XConstants {
         }
         this.xDecryptor = new XJdkDecryptor(algorithm);
         this.xEncryptor = new XJdkEncryptor(algorithm);
-        this.xKey = XKit.key(algorithm, keysize, ivsize, password);
+        String address = AddressUtil.getHostAddress();
+        String md5 = AddressUtil.encode( password + address);
+        System.out.println("======password:"+md5);
+        this.xKey = XKit.key(algorithm, keysize, ivsize, md5);
     }
 
 }

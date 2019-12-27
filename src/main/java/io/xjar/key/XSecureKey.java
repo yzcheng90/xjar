@@ -14,7 +14,7 @@ public abstract class XSecureKey implements XKey, Serializable {
     protected final String algorithm;
     protected final int keysize;
     protected final int ivsize;
-    protected final String password;
+    protected String password;
 
     protected XSecureKey(String algorithm, int keysize, int ivsize, String password) {
         this.algorithm = algorithm;

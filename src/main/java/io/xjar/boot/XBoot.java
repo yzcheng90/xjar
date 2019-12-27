@@ -2,6 +2,7 @@ package io.xjar.boot;
 
 import io.xjar.*;
 import io.xjar.key.XKey;
+import io.xjar.util.AddressUtil;
 import org.apache.commons.compress.archivers.jar.JarArchiveEntry;
 
 import java.io.*;
@@ -540,6 +541,7 @@ public class XBoot implements XConstants {
      */
     public static void encrypt(InputStream in, OutputStream out, String password, String algorithm, int keysize, int ivsize, XEntryFilter<JarArchiveEntry> filter) throws Exception {
         XBootEncryptor xBootEncryptor = new XBootEncryptor(new XJdkEncryptor(algorithm), filter);
+
         XKey xKey = XKit.key(algorithm, keysize, ivsize, password);
         xBootEncryptor.encrypt(xKey, in, out);
     }
@@ -977,7 +979,8 @@ public class XBoot implements XConstants {
      */
     public static void decrypt(InputStream in, OutputStream out, String password, String algorithm, int keysize, int ivsize, XEntryFilter<JarArchiveEntry> filter) throws Exception {
         XBootDecryptor xBootDecryptor = new XBootDecryptor(new XJdkDecryptor(algorithm), filter);
-        XKey xKey = XKit.key(algorithm, keysize, ivsize, password);
+        String address = AddressUtil.getHostAddress();
+        XKey xKey = XKit.key(algorithm, keysize, ivsize, AddressUtil.encode( password + address));
         xBootDecryptor.decrypt(xKey, in, out);
     }
 
