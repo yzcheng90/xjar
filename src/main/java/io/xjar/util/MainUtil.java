@@ -24,9 +24,9 @@ public class MainUtil {
         String encrypted = "E:\\github\\study-http\\target\\encrypted.jar";
         String decrypted = "E:\\github\\study-http\\target\\decrypted.jar";
         XBoot.encrypt(plaintext, encrypted, password, new XJarAntEntryFilter("com/study/**"));
-        password = "czx";
-        System.out.println("======password:"+password);
-        XBoot.decrypt(encrypted, decrypted, password, new XJarAntEntryFilter("com/study/**"));
+        //password = "czx";
+        //System.out.println("======password:"+password);
+        //XBoot.decrypt(encrypted, decrypted, password, new XJarAntEntryFilter("com/study/**"));
         System.out.println("======结束");
     }
 }
